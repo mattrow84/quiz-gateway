@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 3rem 1rem;
+      background:#f8f9fa;
+      color:#111;
+    }
+    .inactive-box {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 2rem;
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:8px;
+      box-shadow:0 0 10px rgba(0,0,0,.05);
+    }
+  </style>
+
+  <script>
+    /*
+      METTI true per ATTIVARE il quiz (redirect automatico)
+      METTI false per DISATTIVARE (mostra messaggio)
+    */
+    const quizActive = false; // <--- CAMBIA QUI
+
+    // URL del tuo quiz su Vercel
+    const QUIZ_URL = "https://quiz-frontend-self.vercel.app/";
+
+    if (quizActive) {
+      // reindirizza subito gli utenti al quiz
+      window.location.replace(QUIZ_URL);
+    }
+  </script>
+</head>
+<body>
+  <div id="inactive" class="inactive-box" style="display:none;">
+    <h1>Quiz non attivo</h1>
+    <p>Torna più tardi. L'host deve ancora aprire il quiz.</p>
+  </div>
+
+  <script>
+    if (!quizActive) {
+      document.getElementById("inactive").style.display = "block";
+    }
+  </script>
+</body>
+</html>
